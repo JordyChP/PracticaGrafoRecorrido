@@ -128,7 +128,6 @@ public abstract class Grafo<T> implements Serializable {
 
     public int[] toStringDFS(int origen) {
         for (int i = 2; i < arrayToString(toArrayDFS(origen)).length; i++) {
-            //System.out.println("--" + arrayToString(toArrayDFS(origen))[i]);
             if (origen == arrayToString(toArrayDFS(origen))[i]) {
                 return null;
             }
@@ -144,16 +143,12 @@ public abstract class Grafo<T> implements Serializable {
         return res;
     }
 
-    //BFS
     public int[] toStringBFS(int origen) {
         for (int i = 2; i < arrayToString(toArrayBFS(origen)).length; i++) {
             if (origen == arrayToString(toArrayBFS(origen))[i]) {
                 return null;
             }
-//            Lista<Adyacencia> lista1 = adyacentes((i + 1));
-//            if (lista1.consultarDatoPosicion(0) == null) {
-//                System.out.println("No hay adyacencias" + (i + 1));
-//            }
+
         }
         return arrayToString(toArrayBFS(origen));
     }
@@ -194,7 +189,6 @@ public abstract class Grafo<T> implements Serializable {
 
         for (int i = 0; i < numVertices(); i++) {
             ListaEnlazada<Adyacencia> ad = adyacentes((i + 1));
-            //System.out.print((i+1));
             for (int j = 0; j < ad.getSize(); j++) {
                 Adyacencia aux = ad.obtenerDato(j);
                 if (aux.getPeso() != null) {
@@ -208,7 +202,6 @@ public abstract class Grafo<T> implements Serializable {
                 }
             }
         }
-        //System.out.print("\n");
         return MatrizAdyacencias;
     }
 
@@ -234,7 +227,6 @@ public abstract class Grafo<T> implements Serializable {
                     ik = matrizAd[i][k];
                     kj = matrizAd[k][j];
                     sum = ik + kj;
-                    //encontrando al minimo
                     minimo = Math.min(ij, sum);
                     if (ij != sum) {
                         if (minimo == sum) {

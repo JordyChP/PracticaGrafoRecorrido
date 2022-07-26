@@ -53,7 +53,7 @@ public class JFrameCiudad extends javax.swing.JFrame {
     private void guardar() {
 
         try {
- 
+
             cc.getCiudad().setCiudad(txtCiudad.getText());
             cc.getCiudad().setCanton(txtCanton.getText());
 
@@ -81,7 +81,7 @@ public class JFrameCiudad extends javax.swing.JFrame {
         }
     }
 
-   private void agregarAdyacencia() throws Exception {
+    private void agregarAdyacencia() throws Exception {
         if (cc.getGrafo() != null) {
             if (cbxDestino.getSelectedIndex() == cbxOrigen.getSelectedIndex()) {
                 JOptionPane.showMessageDialog(null, "No hay insertar arista con el mismo valor", "Error", JOptionPane.ERROR_MESSAGE);
@@ -154,7 +154,7 @@ public class JFrameCiudad extends javax.swing.JFrame {
             for (int i = 0; i < caminos.getSize(); i++) {
                 h = h + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Integer.parseInt(caminos.obtenerDato(i).toString())).getCiudad();
             }
-            JOptionPane.showMessageDialog(null, "Para ir de la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p1).getCiudad()+ " a la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p2).getCiudad()+ " hay que ir por: \n" + h.substring(6));
+            JOptionPane.showMessageDialog(null, "Para ir de la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p1).getCiudad() + " a la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p2).getCiudad() + " hay que ir por: \n" + h.substring(6));
         }
     }
 
@@ -169,17 +169,16 @@ public class JFrameCiudad extends javax.swing.JFrame {
                 float auxMatriz[][] = cc.getGrafo().generarMatrizAd();
                 auxMatriz = validarMatriz(auxMatriz);
                 String h = cc.getGrafo().algoritmoFloyd(auxMatriz, p1, p2);
-                for (int i = 1; i < h.length()-1; i+=2) {
-                   aux = aux+">>"+cc.getGrafoObjeto().obtenerEtiqueta(Character.getNumericValue(h.charAt(i))).getCiudad();
+                for (int i = 1; i < h.length() - 1; i += 2) {
+                    aux = aux + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Character.getNumericValue(h.charAt(i))).getCiudad();
                 }
-                JOptionPane.showMessageDialog(null,"El mejor camino con el menor peso para ir desde la Ciudad: "+cc.getGrafoObjeto().obtenerEtiqueta(p1).getCiudad()+" a la Ciudad: "+cc.getGrafoObjeto().obtenerEtiqueta(p2).getCiudad()+"\n es desde "+
-                aux.substring(6));
+                JOptionPane.showMessageDialog(null, "El mejor camino con el menor peso para ir desde la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p1).getCiudad() + " a la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p2).getCiudad() + "\n es desde "
+                        + aux.substring(6));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
-    
 
     public float[][] validarMatriz(float ma[][]) {
         try {
@@ -211,8 +210,6 @@ public class JFrameCiudad extends javax.swing.JFrame {
         txtCanton = new javax.swing.JTextField();
         txtCiudad = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        txtPersona = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtable = new javax.swing.JTable();
@@ -239,12 +236,12 @@ public class JFrameCiudad extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Canton");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 130, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 130, -1));
 
         jLabel2.setText("Ciudad");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, -1));
-        jPanel2.add(txtCanton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 180, -1));
-        jPanel2.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, -1));
+        jPanel2.add(txtCanton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 290, -1));
+        jPanel2.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 240, -1));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -253,10 +250,6 @@ public class JFrameCiudad extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 550, -1));
-
-        jLabel4.setText("Persona");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 90, -1));
-        jPanel2.add(txtPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 170, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 100));
 
@@ -386,15 +379,15 @@ public class JFrameCiudad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-BusquedaAnchura();        // TODO add your handling code here:
+        BusquedaAnchura();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-BusquedaLongitud();        // TODO add your handling code here:
+        BusquedaLongitud();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-generarFloyd();        // TODO add your handling code here:
+        generarFloyd();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -456,7 +449,6 @@ generarFloyd();        // TODO add your handling code here:
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -470,6 +462,5 @@ generarFloyd();        // TODO add your handling code here:
     private javax.swing.JTextField txtCanton;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtDistancia;
-    private javax.swing.JTextField txtPersona;
     // End of variables declaration//GEN-END:variables
 }
