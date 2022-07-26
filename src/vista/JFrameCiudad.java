@@ -115,7 +115,7 @@ public class JFrameCiudad extends javax.swing.JFrame {
             String aux = null;
             for (int i = 4; i < Arrays.toString(cc.getGrafoObjeto().toStringBFS(nodo)).length(); i += 3) {
                 String h = Arrays.toString(cc.getGrafoObjeto().toStringBFS(nodo));
-                aux = aux + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Character.getNumericValue(h.charAt(i))).getCiudad();
+                aux = aux + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Character.getNumericValue(h.charAt(i))).getCanton();
             }
             if (cc.getGrafoObjeto().toStringBFS(nodo) == null) {
                 JOptionPane.showMessageDialog(null, "No hay las suficientes adyacencias ");
@@ -133,7 +133,7 @@ public class JFrameCiudad extends javax.swing.JFrame {
             String aux = null;
             for (int i = 4; i < Arrays.toString(cc.getGrafoObjeto().toStringDFS(nodo)).length(); i += 3) {
                 String h = Arrays.toString(cc.getGrafoObjeto().toStringDFS(nodo));
-                aux = aux + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Character.getNumericValue(h.charAt(i))).getCiudad();
+                aux = aux + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Character.getNumericValue(h.charAt(i))).getCanton();
             }
             if (cc.getGrafoObjeto().toStringDFS(nodo) == null) {
                 JOptionPane.showMessageDialog(null, "No hay las suficientes adyacencias ");
@@ -152,9 +152,9 @@ public class JFrameCiudad extends javax.swing.JFrame {
             ListaEnlazada caminos = cc.getGrafoObjeto().caminoMinimo(p1, p2);
             String h = null;
             for (int i = 0; i < caminos.getSize(); i++) {
-                h = h + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Integer.parseInt(caminos.obtenerDato(i).toString())).getCiudad();
+                h = h + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Integer.parseInt(caminos.obtenerDato(i).toString())).getCanton();
             }
-            JOptionPane.showMessageDialog(null, "Para ir de la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p1).getCiudad() + " a la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p2).getCiudad() + " hay que ir por: \n" + h.substring(6));
+            JOptionPane.showMessageDialog(null, "Para ir de la Canton: " + cc.getGrafoObjeto().obtenerEtiqueta(p1).getCanton()+ " a la Canton: " + cc.getGrafoObjeto().obtenerEtiqueta(p2).getCanton()+ " hay que ir por: \n" + h.substring(6));
         }
     }
 
@@ -170,9 +170,9 @@ public class JFrameCiudad extends javax.swing.JFrame {
                 auxMatriz = validarMatriz(auxMatriz);
                 String h = cc.getGrafo().algoritmoFloyd(auxMatriz, p1, p2);
                 for (int i = 1; i < h.length() - 1; i += 2) {
-                    aux = aux + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Character.getNumericValue(h.charAt(i))).getCiudad();
+                    aux = aux + ">>" + cc.getGrafoObjeto().obtenerEtiqueta(Character.getNumericValue(h.charAt(i))).getCanton();
                 }
-                JOptionPane.showMessageDialog(null, "El mejor camino con el menor peso para ir desde la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p1).getCiudad() + " a la Ciudad: " + cc.getGrafoObjeto().obtenerEtiqueta(p2).getCiudad() + "\n es desde "
+                JOptionPane.showMessageDialog(null, "El mejor camino con el menor peso para ir desde la canton: " + cc.getGrafoObjeto().obtenerEtiqueta(p1).getCanton()+ " a la Canton: " + cc.getGrafoObjeto().obtenerEtiqueta(p2).getCanton()+ "\n es desde "
                         + aux.substring(6));
             } catch (Exception e) {
                 e.printStackTrace();
